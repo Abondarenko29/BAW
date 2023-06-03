@@ -40,10 +40,8 @@ def check_code (code, number, client):
     .verification_checks \
     .create(to=number, code=code)
 
-    if verification_check.status == "approved":
-        return True
-    elif verification_check.status == "pending":
-        return False
+    check = bool (verification_check.status.replace ("pending", ""))
+    return check
 
 
 def return_connect ():
@@ -176,7 +174,7 @@ def edit ():
             WHERE id = (?)
             """, [flask.session.get ("id")])
             data = kursor.fetchone ()
-            return flask.render_template ("edit.html", data = data)
+            return flask.render_template ("edit_user.html", data = data)
         else:
             abort (404)
     except KeyError:
@@ -210,8 +208,8 @@ def endedit ():
                         except con.ConnectionError:
                             flask.flash ("Проблеми з під'єднанням до інтернету!")
                             return flask.redirect (flask.url_for ("users.edit"))
-                        # except TwilioRestException:
-                        #     flask.flash ("Ви забагато разів просили надсилати код перевірки, зачекайте 10 хвилин!")
+                        except TwilioRestException:
+                            flask.flash ("Ви забагато разів просили надсилати код перевірки, зачекайте 10 хвилин!")
                         return flask.render_template ("check_your_number.html")
                     else:
                         flask.flash ("На цей номер зареєстрований обліпковий запис!")
@@ -227,12 +225,12 @@ def endedit ():
 
 def new_data ():
     try:
-        name, surname, phone = flask.session.get ("data")
+        name, surname, phone = flask.session.get ("new_data")
         if flask.request.method == "POST" and flask.session.get ("islogin"):
             connect = sqlite3.connect ("files/tables.db")
             kursor = connect.cursor ()
 
-            check = flask.session.get ("check")
+            check = flask.request.form.get ("check")
             client = return_client ()
             ischeck = check_code (check, phone, client)
 

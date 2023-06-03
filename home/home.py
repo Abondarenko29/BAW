@@ -49,16 +49,14 @@ homeapp = flask.Blueprint ("home", __name__,
 #     """
 
 def index ():
-    # flask.session["islogin"] = False
-    # flask.session["id"] = None
     try:
-        if flask.session["islogin"]:
-            return flask.redirect (flask.url_for ("main"))
+        if flask.session.get ("islogin"):
+            return flask.redirect (flask.url_for ("home.main"))
         else:
             flask.session["islogin"] = False
             flask.session["id"] = None
             return flask.render_template ("index.html")
-    except:
+    except KeyError:
         flask.session["islogin"] = False
         flask.session["id"] = None
         return flask.render_template ("index.html")
@@ -128,19 +126,25 @@ def category (category):
 
 def search ():
     try:
-        if flask.request.method == "POST" and flask.session.get ("islogin"):
+        if flask.session.get ("islogin"):
             look_for = flask.request.args.get ("look_for")
             connect = return_connect ()
             kursor = connect.cursor ()
 
-            kursor.execute ("""SELECT price.price, price.id, price.currency, price.name, price.amount, price.writing,
-            users.phone FROM users, price, users_price
+            kursor.execute ("""SELECT price.price, price.id, price.currency, price.name, price.amount, REPLACE(price.writing, '\n', '<br>') AS writing,
+            users.phone, users.id as u_id FROM price
+            JOIN users_price ON users_price.id_price = price.id
+            JOIN users ON users.id = users_price.id_users
             WHERE price.name == (?)
+            GROUP BY price.id
             ORDER BY price.datetime DESC""", [look_for])
+
+            id_user = int(flask.session.get ("id"))
+
             datas = kursor.fetchall ()
             if datas == []:
                 flask.flash ("Нічого не знайдено 😥😥😥!")
-            return flask.render_template ("main.html", datas = datas)
+            return flask.render_template ("main.html", datas = datas, id_user = id_user)
         else:
             abort (404)
     except KeyError:

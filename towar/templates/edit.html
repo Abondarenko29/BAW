@@ -23,8 +23,8 @@
 
             <label for = "category">Виберіть категорію товару:</label>
 
-            <select name = "category" id = "category" required value = "{{ data.category }}">
-                <option hidden selected disabled value = "{{ data.category }}">{{ data.category }}</option>
+            <select name = "category" id = "category" required>
+                <option hidden selected value = "{{ data.category }}">{{ data.category }}</option>
                 <option value = "Електроніка">Електроніка</option>
                 <option value = "Побутова техніка">Побутова техніка</option>
                 <option value = "Сантехніка">Сантехніка</option>
@@ -95,7 +95,7 @@
             <td><input type="number" id = "kard_number" required name="kard_number" value = "{{ bank.kard_number }}"></td></tr>
             <tr>
             <td><label for="name_bank"><i>Назва банку</i></label></td>
-            <td><input type="number" id = "name_bank" required name="name_bank" value = "{{ bank.name_bank }}"></td></tr>
+            <td><input type="text" id = "name_bank" required name="name_bank" value = "{{ bank.name_bank }}"></td></tr>
             </tbody>
             </table>
             <table class="center">

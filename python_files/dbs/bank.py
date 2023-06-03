@@ -10,7 +10,7 @@ kursor.execute ("""CREATE TABLE IF NOT EXISTS bank (
     name TEXT NOT NULL,
     surname TEXT,
     kard_number INTEGER NOT NULL,
-    name_bank INTEGER NOT NULL,
+    name_bank VARCHAR(140) NOT NULL,
     datetime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)
 """)
 

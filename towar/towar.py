@@ -159,6 +159,8 @@ def endedit (id_):
             currency = flask.request.form.get ("currency")
             category = flask.request.form.get ("category")
 
+            print (category)
+
             #Це банківські, для переказу грошей, дані
 
             writing = writing.replace ("<", "&lt")
@@ -218,7 +220,7 @@ def delete ():
             WHERE id_price == (?)
             """, [id_])
             u_id = kursor.fetchone ()[0]
-            if int (flask.session.get ("id")) == u_id:
+            if int(flask.session.get ("id")) == u_id:
                 kursor.execute ("""SELECT bank.id FROM bank
                 JOIN price_bank ON bank.id = price_bank.id_bank
                 JOIN price ON price.id = price_bank.id_price

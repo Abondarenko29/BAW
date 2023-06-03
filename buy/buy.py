@@ -105,7 +105,7 @@ def endbuy():
                                 text = f"+{phone_from} buy some. His article {id_}.",
                                 from_ = "BAW",
                                 to = phone)
-            print (phone)
+            print (f"+{phone}")
             
             if sucsess:
 
@@ -165,7 +165,7 @@ def buyed (id_):
             """, [id_])
             u_id = kursor.fetchone ()[0]
 
-            if int (flask.session.get ("id") == u_id):
+            if int(flask.session.get ("id")) == u_id:
 
                 kursor.execute ("""SELECT amount FROM price
                 WHERE id == (?)""", [id_])
