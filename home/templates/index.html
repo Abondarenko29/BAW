@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <title>BAW - зареєструватися</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/index_screen.css') }}">
+    </head>
+    <body>
+        <div class = "screen">
+            <div class = "l1">
+                <a class = "btn-right" href="{{ url_for('login.login') }}">Увійти</a>
+            </div>
+            <div class = "l2">
+                <a class = "btn-left" href="{{ url_for('users.register') }}">Зареєструватися</a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+div.screen {
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    margin-right:25%;
+    margin-left:25%;
+    border:5px black dotted;
+    margin-bottom:40px;
+}
+
+.decoration {
+    background-color:rgba(0, 255, 221, 0.301);
+    border:3px double rgba(0, 104, 0, 0.863);
+    border-radius:30px;
+}
+
+.decoration, .sklad, .bank {
+    color:rgba(83, 31, 226, 0.801);
+    justify-content: center;
+    align-items: center;
+    margin:2%;
+    padding:2%;
+    font-size:110%;
+}
+
+.sklad {
+    background-color:rgba(190, 190, 190, 0.726);
+    border:3px solid rgb(255, 134, 35);
+}
+
+textarea {
+    width:70%;
+    min-height:300px;
+    max-height:600px;
+}
+
+.h {
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}
+
+.bank {
+    background-color:rgba(206, 206, 206, 0.815);
+    border:3px red double;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}
+
+.add {
+    width:97%;
+    justify-content: center;
+    align-items: center;
+    margin:10px;
+}
+
+input.file {
+    border:1px solid black;
+    color:black;
+    background-color:rgba(138, 152, 184, 0.74);
+}

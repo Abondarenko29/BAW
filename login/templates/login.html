@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <title>BAW - вхід</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/register/sing.css') }}">
+    </head>
+    <body>
+        <div class="screen">
+            <img src = "{{ url_for ('static', filename='images/icon.png') }}" width = "20%" height = "20%" class="logo">
+            <form action="{{ url_for ('login.endin') }}" method="post">
+                <table>
+                    <thead><tr><th><th></th></th></tr></thead>
+                <tbody>
+                <tr>
+                <td><label for="id" class = "form">Ідентифікаційний код:</label></td>
+                <td><input type="number" id = "id" class = "first_input" min="1" required name="id"></td></tr>
+                <tr>
+                <td><label for="password" class = "form">Пароль:</label></td>
+                <td><input type="password" id = "password" class="first_input" required, name="password"></td></tr>
+                </tbody>
+                </table>
+                <input type="submit" value = "Увійти" class = "end_sing">
+            </form>
+            {% with messages = get_flashed_messages () %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class = "error">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang = "uk">
+    <head>
+        <title>BAW - видалення обліпкового запису</title>
+        <link rel = "stylesheet" href = "{{ url_for ('static', filename = 'css/register/sing.css') }}">
+    </head>
+    <body>
+        <div class = "screen">
+            <h4 class = "lable">Ви точно хочете видалити обліпковий запис?</h4>
+            <p class = "lable">Якщо ти видалиш обліпковий запис, то видаляться всі товари, які ви продавали.</p>
+            <a class = "end_sing" href = "{{ url_for ('users.delete') }}">Так!</a>
+        </div>
+    </body>
+</html>

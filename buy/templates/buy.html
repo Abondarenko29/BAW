@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>BAW - купити</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/prices/buy.css') }}">
+{% endblock %}
+
+{% block bg %}style = "background-color:rgba(146, 143, 97, 0.87)"{% endblock %}
+
+{% block content %}
+<div class = "screen">
+    <form action = "{{ url_for ('buy.endbuy', id = id) }}" method = "post">
+    <table>
+        <thead>
+            <tr><th></th><th></th><th></th><th></th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for  ="name">Введіть справжнє ім'я:</label></td>
+                <td><input name = "name" type = "text" id = "name" required value = "{{ data2.name }}"></td>
+                <td class = "right"><label for = "surname">Введіть справжнє прізвище:</td>
+                <td><input name = "surname" id = "surname" required value = "{{ data2.surname }}"></td>
+            </tr>
+            <tr>
+                <td><label for = "bank_name">Введіть назву банку:</label></td>
+                <td><input type="number" name = "bank_name" id = "bank_name" required></td>
+            </tr>
+            <tr>
+                <td><label for = "kard_number">Введіть номер картки:</label></td>
+                <td><input type = "number" name = "kard_number" id = "kard_number" required></td>
+            </tr>
+            <tr>
+                <td><label for = "currency">Валюта:</label></td>
+                <td>
+                    <select id = "currency" disabled>
+                        <option value = "{{ data.currency }}">{{ data.currency }}</option>
+                    </select>
+                </td>
+                <td><label for = "price">Ціна:</label></td>
+                <td><input type = "number" id = "price" disabled value = "{{ data.price }}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <label for = "amount">Кількість</label>
+    <input type = "number" id = "amount" value = "1" min = "1" max = "{{ amount.amount }}" name = "amount">
+    <input type = "submit" value = "Завершити оплату!" class = "buy">
+    </form>
+</div>
+{% endblock %}

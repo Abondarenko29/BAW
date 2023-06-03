@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/prices/base.css') }}">
+        {% block head %}
+        {% endblock %}
+    </head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <body {% block bg %} {% endblock %}>
+        <nav class="navbar">
+            <div class="dropdown">
+                <button class="btn btn-info-emphasis dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Категорії
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Електроніка') }}">Електроніка</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Побутова техніка') }}">Побутова техніка</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Сантехніка') }}">Сантехніка</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Вимірювальний прилад') }}">Вимірювальний прилад</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Запчастини') }}">Запчастини</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Продукти, харчі та напої') }}">Продукти, харчі та напої</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Медичний або хімічний засіб') }}">Медичний або хімічний засіб</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Виріб') }}">Виріб</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Послуга') }}">Послуга</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Нерухомість') }}">Нерухомість</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Транспортний засіб') }}">Транспортний засіб</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Транспорт, але не транспортний засіб') }}">Транспорт, але не транспортний засіб</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Одяг та взувачка') }}">Одяг та взувачка</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Спортнивний інвентар') }}">Спортнивний інвентар</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Будівельні матеріали') }}">Будівельні матеріали</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Поширений витворір мистецтва') }}">Поширений витворір мистецтва</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Меблі') }}">Меблі</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Канцелярія') }}">Канцелярія</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Папір') }}">Папір</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Посуд') }}">Посуд</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Наукове джерело') }}">Наукове джерело</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Онлайн-продукт') }}">Онлайн-продукт</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Іграшка та настільна гра') }}">Іграшка та настільна гра</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Живі організми') }}">Живі організми</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Нагорода') }}">Нагорода</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Колекційний товар') }}">Колекційний товар</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Ювелірний виріб') }}">Ювелірний виріб</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Речовини та струм') }}">Речовини та струм</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Юридичні документи') }}">Юридичні документи</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Паливні матеріали') }}">Паливні матеріали</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Зброя') }}">Зброя</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Піротехнічні вироби') }}">Піротехнічні вироби</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Алкогольний та тютюновий товар') }}">Алкогольний та тютюновий товар</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Вибухові речовини') }}">Вибухові речовини</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Працівник') }}">Працівник</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Сміття та мукулатура') }}">Сміття та мукулатура</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.category', category = 'Інше') }}">Інше</a></li>
+                    <li><hr class="dropdown-divider border border-info border-2 opacity-50"></li>
+                    <li><a class="dropdown-item" href="{{ url_for ('home.main') }}">Усі товари</a></li>
+                </ul>
+            </div>
+
+            <form style="display:flex" action="{{ url_for('home.search') }}" method="get">
+            <input type="search" style="width:500px;" placeholder="Пошук товару..." name="look_for">
+            <button class="btn btn-outline-success" type="submit" style="background-color:rgba(214, 140, 56, 0.712);">Шукати</button>
+            </form>
+            {% block btn %}{% endblock %}
+            <a href = "{{ url_for('home.user_info') }}" class = "user_info"><img src = "{{ url_for('static', filename = 'images/user_info.png') }}" width="50px" height="50px"></a>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

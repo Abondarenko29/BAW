@@ -1,0 +1,116 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.screen {
+    margin-top:10%;
+    margin-left:20%;
+    margin-right:20%;
+    background-color:rgb(202, 201, 201);
+    border:double 5px black;
+    border-radius:0px 0px 30px 30px;
+}
+
+.andnav {
+    margin-top:5%!important;
+}
+
+div.notusallyscreen {
+    font-size:120%;
+    margin-left:20%;
+    margin-right:20%;
+    padding:10px;
+    margin-top:25px;
+    border:3px double black;
+    border-radius:30px;
+    background-color:rgb(202, 201, 201);
+    margin-top:20%;
+}
+
+.form {
+    margin-left:10px;
+    margin-top:10%;
+}
+
+.end_sing {
+    width:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:5%;
+    margin-bottom:10px;
+    margin-top:10px;
+    border:1px solid black;
+    color:black;
+    background-color:rgb(230, 230, 230);
+}
+
+.first_input {
+    display:inline-block;
+}
+
+.id {
+    border:solid 1px black;
+    border-radius:20%;
+    padding:10px;
+    margin:5px;
+    background-color:rgba(255, 255, 142, 0.705);
+}
+
+.fake {
+    border:double 3px darkorange;
+    margin:10px;
+    background-color:rgba(159, 197, 167, 0.637);
+}
+
+body {
+    background-color:rgba(146, 235, 212, 0.884);
+}
+
+.error {
+    color:red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+a.nav_a {margin-left:10px;}
+
+.lable {
+    font-size:120%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.exit {
+    align-items:center;
+    justify-content:center;
+    display:flex;
+    margin:2%;
+    border:black 1px solid;
+    margin-inline:20%;
+    border-radius:3px;
+    padding:0.5%;
+}
+
+table.content {
+    align-items:center;
+    justify-content:center;
+    display:flex;
+}
+
+.list {
+    background-color:rgba(255, 166, 0, 0.205);
+    margin-inline:20%;
+    padding:1%;
+    border-radius:15%;
+}

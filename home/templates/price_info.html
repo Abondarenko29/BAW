@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>BAW - інформація про товар</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/prices/price_info.css') }}">
+{% endblock %}
+
+{% block bg %}
+style = "background-color:rgba(93, 138, 124, 0.822)"
+{% endblock %}
+
+{% block content %}
+
+<div class = "screen">
+    <!-- <div class = "flex">
+        <h2 class = "name">{{ data.name }}</h2>
+        <div class = "price">
+            <h2>{{ data.price }}</h2><h2 class = "currency">{{ data.currency }}</h2>
+        </div>
+    </div> -->
+    <!-- <div class = "flex">
+        {% if data.amount > 0 %}
+            <h4 class="have">Є в наявності!</h4>
+            {% else %}
+            <h4 class = "not_have">Немає в наявності!</h4>
+        {% endif %}
+        <h2 class = "number">+{{ data.phone }}</h2>
+    </div> -->
+    <div class="container overflow-hidden text-center">
+        <div class="row g-2">
+            <div class="col-6">
+                <h2 class = "name">{{ data.name }}</h2>
+            </div>
+            <div class="col-6">
+                <div class = "price">
+                    <h2>{{ data.price }}</h2><h2 class = "currency">{{ data.currency }}</h2>
+                </div>
+            </div>
+            <hr class="border border-secondary border-2 opacity-50">
+            <div class="col-6">
+                    {% if data.amount > 0 %}
+                        <h4 class="have">Є в наявності!</h4>
+                        {% else %}
+                        <h4 class = "not_have">Немає в наявності!</h4>
+                    {% endif %}
+            </div>
+            <div class="col-6">
+                <h2 class = "number">+{{ data.phone }}</h2>
+            </div>
+        </div>
+    </div>
+    <textarea disabled class = "writing">{{ writing }}</textarea>
+    <h3 class = "seller">Продавець: {{ data.pricer_name }} {{ data.surname }}</h3>
+    <table>
+    <thead><tr><th></th><th></th></th></tr></thead>
+    <tbody>
+        <tr><td>Артикул</td><td>{{ data.id }}</td></tr>
+        <tr><td>Кількість</td><td>{{ data.amount }}</td></tr>
+        <tr><td>Категорія</td><td>{{ data.category }}</td></tr>
+    </tbody>
+    </table>
+    <a class = "btn" href="{{ url_for('buy.buy', id_ = data.id) }}">Купити</a>
+</div>
+{% endblock %}

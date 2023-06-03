@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BAW - підтвердження номеру</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/register/sing.css') }}">
+    </head>
+    <body>
+        <div class="notusallyscreen">
+            <p style="color:yellow;">Оновіть, аби надіслати sms повторно!</p>
+            <form method="post" action = "{{ url_for('users.data') }}">
+                <label for="check">Введіть код, який вам щойно прислали:</label>
+                <input type = "text" required name = "check" id = "check" minlength="6" maxlength = "6">
+                <input type = "submit" class = "end_sing" value = "Закінчити реєстрацію" style = "margin-top:20%;">
+            </form>            
+            {% with messages = get_flashed_messages () %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class = "error">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+    </body>
+</html>

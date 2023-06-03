@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>BAW - додати товар</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prices/add.css') }}">
+{% endblock %}
+
+{% block bg %}style="background-color:rgba(255, 248, 151, 0.87)"{% endblock %}
+
+
+
+
+
+{% block content %}
+<div class="screen">
+    <img src="{{ url_for('static', filename='images/icon.png') }}" width = "20%" height = "20%", style="display:block">
+    <form action="{{ url_for('towar.endedit', id_ = data.id ) }}" method="post">
+        <div class="decoration">
+            <label for = "name"><i>Назва:</i></label>
+            <input type="text" id = "name" name = "name_towar" required value = "{{ data.name }}"><br>
+            <label for = "writing"><i>Опис:</i></label><br>
+            <textarea rows = "10" class = "writing" name = "writing">{{ writing }}</textarea>
+
+            <label for = "category">Виберіть категорію товару:</label>
+
+            <select name = "category" id = "category" required value = "{{ data.category }}">
+                <option hidden selected disabled value = "{{ data.category }}">{{ data.category }}</option>
+                <option value = "Електроніка">Електроніка</option>
+                <option value = "Побутова техніка">Побутова техніка</option>
+                <option value = "Сантехніка">Сантехніка</option>
+                <option value = "Вимірювальний прилад">Вимірювальний прилад</option>
+                <option value = "Складова техніки">Запчастини</option>
+                <option value = "Продукти, харчі та напої">Продукти, харчі та напої</option>
+                <option value = "Медичний або хімічний засіб">Медичний або хімічний засіб</option>
+                <option value = "Вироб">Виріб</option>
+                <option value = "Послуга">Послуга</option>
+                <option value = "Нерухомість">Нерухомість</option>
+                <option value = "Транспортний засіб">Транспортний засіб</option>
+                <option value = "Транспорт, але не транспортний засіб">Транспорт, але не транспортний засіб</option>
+                <option value = "Одяг та взувачка">Одяг та взувачка</option>
+                <option value = "Спортнивний інвентар">Спортнивний інвентар</option>
+                <option value = "Будівельні матеріали">Будівельні матеріали</option>
+                <option value = "Поширений витворір мистецтва">Поширений витворір мистецтва</option>
+                <option value = "Меблі">Меблі</option>
+                <option value = "Канцелярія">Канцелярія</option>
+                <option value = "Папір">Папір</option>
+                <option value = "Посуд">Посуд</option>
+                <option value = "Наукове джерело">Наукове джерело</option>
+                <option value = "Онлайн-продукт">Онлайн-продукт</option>
+                <option value = "Іграшки та настільні ігри">Іграшка та настільна гра</option>
+                <option value = "Живі організми">Живі організми</option>
+                <option value = "Нагорода">Нагорода</option>
+                <option value = "Колекційний товар">Колекційний товар</option>
+                <option value = "Ювелірний виріб">Ювелірний виріб</option>
+                <option value = "Речовини та струм">Речовини та струм</option>
+                <option value = "Юридичні документи">Юридичні документи</option>
+                <option value = "Паливо">Паливні матеріали</option>
+                <option value = "Зброя">Зброя</option>
+                <option value = "Піротехнічні вироби">Піротехнічні вироби</option>
+                <option value = "Алкогольний та тютюновий товар">Алкогольний та тютюновий товар</option>
+                <option value = "Вибухові речовини">Вибухові речовини</option>
+                <option value = "Працівник">Працівник</option>
+                <option value = "Сміття та мукулатура">Сміття та мукулатура</option>
+                <option value = "Інше">Інше</option>
+            </select>
+
+        </div>
+        <div class="sklad">
+            <table>
+            <thead>
+                <tr><th></th><th></th></tr>
+            </thead>
+            <tbody>
+            <tr><td><label for = "id"><i>Артикул (ідентифікатор):</i></label></td>
+            <td><input type="number" id = "id" min="1" name="id" required value = "{{ data.id }}"></td></tr>
+            <tr><td><label for = "amount"><i>Кількість:</i></label></td>
+            <td><input type="number" id = "amount" min="0" required name="amount" value = "{{ data.amount }}"></td></tr>
+            </table>
+            </table>
+        </div>
+        <div class = "bank">
+            <h5 class = "h"><b>Банківські дані:</b></h5>
+            <table>
+            <thead>
+                <tr><th></th><th></th><td></td><td></td></tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><label for="name"><i>Справжнє ім'я:</i></label></td>
+            <td><input type="text" id = "name" required name="name" value = "{{ bank.name }}"></td>
+            <td><label for="surname"><i>Справжнє прізвище:</i></label></td>
+            <td><input type="text" id = "surname" required name="surname" value = "{{ bank.surname }}"></td></tr>
+            <tr>
+            <td><label for="kard_number"><i>Номер карти:</i></label></td>
+            <td><input type="number" id = "kard_number" required name="kard_number" value = "{{ bank.kard_number }}"></td></tr>
+            <tr>
+            <td><label for="name_bank"><i>Назва банку</i></label></td>
+            <td><input type="number" id = "name_bank" required name="name_bank" value = "{{ bank.name_bank }}"></td></tr>
+            </tbody>
+            </table>
+            <table class="center">
+                <thead><tr><th></th><th></th></tr></thead>
+            <tbody>
+            <tr>
+            <td><label for="price"><i>Ціна:</i></label></td>
+            <td><label for="currency"><i>Валюта:</i></label></td></tr>
+            <tr>
+            <td><input type="number" for = "price" min = "0" step="0.01" required name="price" value = "{{ data.price }}"></td>
+            <td><select name = "currency" id = "currency" value = "{{ data.currency }}">
+                <option value="{{ data.currency }}" hidden = "hidden" selected>{{ data.currency }}</option>
+                <option value="₴">₴</option>
+                <option value="$">$</option>
+                <option value="€">€</option>
+                <option value="zł">zł</option>
+                <option value="₿">₿</option>
+            </select></td></tr>
+            </tbody>
+            </table>
+        </div>
+        <input type = "submit" value = "Виставити" class="add">
+    </form>
+</div>
+{% endblock %}

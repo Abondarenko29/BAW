@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <title>BAW - реєстрація</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/register/sing.css') }}">
+    </head>
+    <body>
+        <div class="screen">
+            <img src = "{{ url_for ('static', filename='images/icon.png') }}" width = "20%" height = "20%" class="logo">
+            <form method="post" action="{{ url_for ('users.check_your_phone') }}">
+                <table>
+                <thead><tr><th></th><th></th><th></th><th></th></tr></thead>
+                <tbody>
+                <tr>
+                <td><label for="name" class = "form">Ім'я:</label></td>
+                <td><input type="text" id = "name" class = "first_input" required name = "name"></td></tr>
+                <tr>
+                <td><label for="surname" class = "form">Прізвище:</label></td>
+                <td><input type="text" id = "surname" class="first_input" name = "surname"></td></tr>
+                <tr>
+                <td><label for="phone" class = "form">Номер телефону:</label></td>
+                <td><input type="tel" id = "phone" class="first_input" required name = "phone"></td></tr>
+                <tr>
+                <td><label for="password">Пароль:</label></td>
+                <td><input type="password" id = "password" name = "password" required></td>
+                <td><label for="repeat_password">Повторіть:</label></td>
+                <td><input type="password" id = "repeat_password" required name = "repeat"></td></tr>
+                </tbody>
+                </table>
+                <input type="submit" value = "Далі" class = "end_sing" style = "margin-bottom:10px; margin-top:10px">
+            </form>
+            {% with messages = get_flashed_messages () %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class = "error">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </body>
+</html>

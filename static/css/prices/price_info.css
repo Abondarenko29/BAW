@@ -1,0 +1,76 @@
+.screen {
+    align-items:center;
+    justify-content: center;
+    border:5px rgba(97, 233, 44, 0.753) dotted;
+    margin-left:20%;
+    margin-right:20%;
+    background-color:rgba(255, 215, 130, 0.884);
+    padding:10px;
+    border-radius:15px 30px 15px 30px;
+}
+
+.price {
+    border:yellow 3px double;
+    background-color:rgba(224, 127, 127, 0.836);
+    margin-left:5%;
+    padding:5px;
+    padding-right:10%;
+    border-radius:20px;
+    display:flex;
+    width:40%;
+}
+
+.currency {
+    padding-left:20%;
+}
+
+.container {
+    margin-bottom:5%;
+}
+
+.number {
+    border:3px rgb(98, 0, 128) solid;
+    background-color:rgba(255, 250, 181, 0.897);
+    margin-left:35%;
+    padding:10px;
+    border-radius:50%;
+    padding-right:10%;
+}
+
+textarea.writing {
+    width:60%;
+    height:200px;
+    min-height:200px;
+    max-height:600px;
+}
+
+.seller {
+    border:dashed 3px rgba(117, 96, 37, 0.863);
+    padding:5px;
+    margin-right:50%;
+}
+
+td {
+    border:1px solid black;
+    padding:5px;
+    background-color:rgba(223, 223, 223, 0.733);
+}
+
+.btn {
+    align-items:center;
+    justify-content: center;
+    display:flex;
+    border:1px solid black;
+    margin-left:10%;
+    margin-right:10%;
+    background-color:rgba(202, 201, 201, 0.808);
+    margin-top:20px;
+}
+
+.have {
+    color:green;
+}
+
+.not_have {
+    color:red;
+}

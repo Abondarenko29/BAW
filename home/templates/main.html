@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>BAW - головна сторінка</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/prices/main_screen.css') }}">
+{% endblock %}
+
+{% block bg %}
+style="background-color:rgba(131, 94, 94, 0.911);"
+{% endblock %}
+
+{% block btn %}
+<a href="{{ url_for ('towar.add') }}" class = "sell">Продати</a>
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages () %}
+{% if messages %}
+    {% for message in messages %}
+        <h5 class="not">{{ message }}</h5>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+{% for data in datas %}
+<div class = "towar">
+    <div class = "priceother">
+        <a class = "price" href = "{{ url_for('home.towar_info', id = data.id) }}">{{ data.price }} {{ data.currency }}</a>
+        {% if id_user == data.u_id %}
+        <div class="dropdown position-sticky start-50 top-50">
+          <button class="btn btn-info-emphasis dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ...
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ url_for ('buy.buyed', id_ = data.id) }}">Куплено</a></li>
+            <li><a class="dropdown-item" href="{{ url_for ('towar.edit', id_ = data.id) }}">Редагувати</a></li>
+            <li><a class="dropdown-item" href="{{ url_for ('towar.delete', id = data.id) }}">Видалити</a></li>
+          </ul>
+        </div>
+        {% endif %}
+        </div>
+    <div class = "in">
+    <div class = "cin">
+    <h4>{{ data.name }}</h4>{% if data.amount > 0 %}
+            <h4 class="have">Є в наявності!</h4>
+            {% else %}
+            <h4 class = "not_have">Немає в наявності!</h4>
+        {% endif %}</div>
+
+
+        <!-- Це я скопіпастив в інтернеті. -->
+
+
+
+    <p>
+      {{ data.writing|safe }}
+    </p></div>
+    <p class = "number">+{{ data.phone }}</p>
+
+</div>
+
+{% endfor %}
+{% endblock %}

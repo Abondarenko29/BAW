@@ -1,0 +1,62 @@
+.towar {
+    margin-left:20px;
+    border:3px dashed black;
+    margin-right:50%;
+    background-color:rgba(228, 222, 222, 0.842);
+    padding:10px;
+    margin-top:10px;
+    border-radius:10px;
+}
+
+.in {
+    margin-top:1%;
+    margin-bottom:1%;
+}
+
+.cin {
+    display:flex;
+}
+
+.priceother {
+    border:yellow 1px solid;
+    background-color:rgba(255, 115, 115, 0.733);
+    padding:5px;
+    border-radius:20%;
+    display:flex;
+}
+
+p.number {
+    border:rgb(205, 39, 255) 1px solid;
+    background-color:rgba(136, 101, 146, 0.63);
+    padding:5px;
+    border-radius:20%;
+}
+
+.have, .not_have {
+    margin-left:50%;
+}
+
+.have {
+    color:green;
+}
+
+.not_have {
+    color:red;
+}
+
+.price {
+    color:black;
+    font-size:150%;
+}
+
+.not {
+    align-items:center;
+    justify-content: center;
+    display:flex;
+}
+
+.dropdown {
+    /* margin-right:20px; */
+    margin-top:5px;
+    margin-bottom:5px;
+}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>BAW - дані обліпкового запису</title>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/register/sing.css') }}">
+{% endblock %}
+
+{% block btn %}
+<a href="{{ url_for ('towar.add') }}" class = "sell">Продати</a>
+{% endblock %}
+
+
+
+{% block content %}
+<div class = "screen andnav">
+    <div class = "fake">
+        <table>
+        <thead>
+            <tr><th></th><th></th></tr>
+        </thead>
+                
+        <tbody>
+            <tr>
+            <td><label for="name" class = "form">Ім'я:</label></td>
+            <td><input type="text" id = "name" class = "first_input" disabled value = "{{ data.name }}"></td></tr>
+            <tr>
+            <td><label for="surname" class = "form">Прізвище:</label></td>
+            <td><input type="text" id = "surname" class="first_input" disabled value = "{{ data.surname }}"></td></tr>
+            <tr>
+            <td><label for="phone" class = "form">Номер телефону:</label></td>
+            <td><input type="tel" id = "phone" class="first_input" disabled value = "+{{ data.phone }}"></td></tr>
+            <tr>
+            <td><label for="password" class="form">Пароль:</label></td>
+            <td><input type="text" id = "password" disabled value = "{{ data.password }}"></td></tr>
+            </tbody>
+            </table>
+            
+            <div class = "id">
+                <label for="id">Ідентифікаційний код:</label>
+                <input type="number" id = "id" disabled value = "{{ data.id }}">
+            </div>
+
+    </div>
+
+    <div class = "list">
+        <table class = "content">
+        <thead>
+            <tr><th></th><th></th></tr>
+        </thead>
+
+        <tbody>
+            <tr>
+            <td><a href="{{ url_for('users.register') }}" class = "nav_a">Новий</a></td>
+            <td><a href="{{ url_for('login.login') }}" class = "nav_a">Змінити обліпковий запис</a></td>
+            </tr><tr>
+            <td><a href="{{ url_for ('users.isdelete') }}" class = "nav_a">Видалити обліпковий запис</a></td>
+            <td><a href = "{{ url_for ('users.edit') }}" class = "nav_a">Редагувати обліковий запис</a></td>
+            </tr>
+            </tbody></table>
+
+            <a href="{{ url_for ('login.logout') }}" class = "exit">Вийти з обліпкового запису</a>
+            
+        </div>
+
+    <a class = "btn end_sing" href="{{ url_for('home.main') }}">До головної сторінки</a>
+</div>
+{% endblock %}
