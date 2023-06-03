@@ -137,7 +137,7 @@ def check_phone ():
         check = kursor.fetchone ()
         flask.session ["data"] = [name, surname, phone, password]
         try:
-            number_check = phonenumbers.parse(phone, "GB")
+            number_check = phonenumbers.parse (phone, "GB")
             phone = int(phone[1:])
             if phonenumbers.is_valid_number(number_check):
                 if repeat == password:
